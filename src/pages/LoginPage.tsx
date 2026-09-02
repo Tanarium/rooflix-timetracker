@@ -19,7 +19,7 @@ export function LoginPage() {
   }
 
   if (user) {
-    const redirectTo = user.role === 'employee' ? '/app' : '/admin'
+    const redirectTo = user.role === 'employee' ? '/fichaje' : '/empleados'
     return <Navigate to={redirectTo} replace state={{ from: location }} />
   }
 
