@@ -38,9 +38,12 @@ export function LoginPage() {
   return (
     <div className="login-page">
       <form className="card login-card stack" onSubmit={handleSubmit}>
-        <div>
-          <h1>Rooflix TimeTracker</h1>
-          <p>Inicia sesión para fichar o gestionar el equipo.</p>
+        <div style={{ textAlign: 'center' }}>
+          <img
+            src={`${import.meta.env.BASE_URL}logos/logo_transpa.png`}
+            alt="Rooflix TimeTracker"
+            className="login-logo"
+          />
         </div>
 
         <div className="field">
