@@ -8,7 +8,14 @@ export function AdminLayout() {
   return (
     <div className="shell">
       <header className="shell-header">
-        <span className="shell-brand">Rooflix TimeTracker · Admin</span>
+        <span className="shell-brand">
+          <img
+            src={`${import.meta.env.BASE_URL}logos/logo_letras.png`}
+            alt="Rooflix TimeTracker"
+            className="shell-logo"
+          />
+          <span>· Admin</span>
+        </span>
         <nav className="shell-nav">
           <NavLink to="/admin/employees">Empleados</NavLink>
           <NavLink to="/admin/time-records">Registros</NavLink>
