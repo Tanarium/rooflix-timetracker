@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
+import { ThemeToggle } from '../components/ThemeToggle'
 import '../styles/shared.css'
 import './LoginPage.css'
 
@@ -37,6 +38,9 @@ export function LoginPage() {
 
   return (
     <div className="login-page">
+      <div className="login-theme-toggle">
+        <ThemeToggle />
+      </div>
       <form className="card login-card stack" onSubmit={handleSubmit}>
         <div style={{ textAlign: 'center' }}>
           <img
