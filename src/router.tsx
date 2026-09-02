@@ -5,6 +5,7 @@ import { AdminLayout } from './layouts/AdminLayout'
 import { LoginPage } from './pages/LoginPage'
 import { TimeClockPage } from './pages/TimeClockPage'
 import { MyRecordsPage } from './pages/MyRecordsPage'
+import { MyRequestsPage } from './pages/MyRequestsPage'
 import { EmployeesPage } from './pages/admin/EmployeesPage'
 import { TimeRecordsPage } from './pages/admin/TimeRecordsPage'
 import { RequestsPage } from './pages/admin/RequestsPage'
@@ -21,6 +22,7 @@ export function AppRouter() {
           <Route index element={<Navigate to="time-clock" replace />} />
           <Route path="time-clock" element={<TimeClockPage />} />
           <Route path="my-records" element={<MyRecordsPage />} />
+          <Route path="requests" element={<MyRequestsPage />} />
         </Route>
       </Route>
 

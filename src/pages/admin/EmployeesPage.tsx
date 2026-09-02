@@ -1,5 +1,6 @@
 import type { Role } from '../../types'
 import { useEmployees } from '../../context/useEmployees'
+import { useAuth } from '../../context/useAuth'
 import '../../styles/shared.css'
 
 const roleLabels: Record<Role, string> = {
@@ -10,6 +11,10 @@ const roleLabels: Record<Role, string> = {
 
 export function EmployeesPage() {
   const { employees, toggleActive } = useEmployees()
+  const { user } = useAuth()
+
+  const canToggle = (targetRole: Role) =>
+    user?.role === 'superadmin' || targetRole === 'employee'
 
   return (
     <div className="page">
@@ -38,13 +43,15 @@ export function EmployeesPage() {
                     </span>
                   </td>
                   <td>
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      onClick={() => toggleActive(employee.id)}
-                    >
-                      {employee.active ? 'Desactivar' : 'Activar'}
-                    </button>
+                    {canToggle(employee.role) && (
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        onClick={() => toggleActive(employee.id)}
+                      >
+                        {employee.active ? 'Desactivar' : 'Activar'}
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
