@@ -16,6 +16,7 @@ export function ShellNav({ role }: { role: Role }) {
           <NavLink to="/empleados">Empleados</NavLink>
           <NavLink to="/registros">Registros</NavLink>
           <NavLink to="/solicitudes">Solicitudes</NavLink>
+          <NavLink to="/inspeccionar">Inspeccionar</NavLink>
         </>
       )}
     </nav>
