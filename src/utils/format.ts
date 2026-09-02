@@ -46,6 +46,29 @@ export function isToday(iso: string): boolean {
   return iso.slice(0, 10) === new Date().toISOString().slice(0, 10)
 }
 
+function startOfWeek(date: Date): Date {
+  const start = new Date(date)
+  const day = start.getDay()
+  const diffToMonday = day === 0 ? -6 : 1 - day
+  start.setDate(start.getDate() + diffToMonday)
+  start.setHours(0, 0, 0, 0)
+  return start
+}
+
+export function isThisWeek(iso: string): boolean {
+  const now = new Date()
+  const start = startOfWeek(now)
+  const end = new Date(start)
+  end.setDate(end.getDate() + 7)
+  const date = new Date(iso)
+  return date >= start && date < end
+}
+
+export function isThisMonth(iso: string): boolean {
+  const now = new Date()
+  return yearOf(iso) === now.getFullYear() && monthOf(iso) === now.getMonth() + 1
+}
+
 function durationMinutes(clockIn: string, clockOut: string | null): number {
   const end = clockOut ? new Date(clockOut) : new Date()
   const start = new Date(clockIn)

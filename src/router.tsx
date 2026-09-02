@@ -9,6 +9,7 @@ import { MyRequestsPage } from './pages/MyRequestsPage'
 import { EmployeesPage } from './pages/admin/EmployeesPage'
 import { TimeRecordsPage } from './pages/admin/TimeRecordsPage'
 import { RequestsPage } from './pages/admin/RequestsPage'
+import { InspectWorkerPage } from './pages/admin/InspectWorkerPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 
 export function AppRouter() {
@@ -30,6 +31,7 @@ export function AppRouter() {
           <Route path="/empleados" element={<EmployeesPage />} />
           <Route path="/registros" element={<TimeRecordsPage />} />
           <Route path="/solicitudes" element={<RequestsPage />} />
+          <Route path="/inspeccionar" element={<InspectWorkerPage />} />
         </Route>
       </Route>
 
