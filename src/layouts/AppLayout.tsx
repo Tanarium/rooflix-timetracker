@@ -1,5 +1,6 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
+import { ShellNav } from './ShellNav'
 import './Layout.css'
 
 export function AppLayout() {
@@ -9,10 +10,7 @@ export function AppLayout() {
     <div className="shell">
       <header className="shell-header">
         <span className="shell-brand">Rooflix TimeTracker</span>
-        <nav className="shell-nav">
-          <NavLink to="/app/time-clock">Fichaje</NavLink>
-          <NavLink to="/app/my-records">Mis registros</NavLink>
-        </nav>
+        <ShellNav role={user?.role ?? 'employee'} />
         <div className="shell-user">
           <span>{user?.name}</span>
           <button type="button" className="btn btn-secondary" onClick={logout}>

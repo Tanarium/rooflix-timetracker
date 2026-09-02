@@ -24,7 +24,7 @@ export function TimeRecordsPage() {
   const { entries } = useTimeEntries()
   const { employees } = useEmployees()
   const trackedEmployees = useMemo(
-    () => employees.filter((employee) => employee.role === 'employee'),
+    () => employees.filter((employee) => employee.role === 'employee' || employee.role === 'admin'),
     [employees],
   )
   const [selectedEmployee, setSelectedEmployee] = useState<typeof ALL | string>(ALL)
