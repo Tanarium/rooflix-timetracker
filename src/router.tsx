@@ -17,21 +17,19 @@ export function AppRouter() {
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<LoginPage />} />
 
-      <Route element={<ProtectedRoute allowedRoles={['employee', 'admin', 'superadmin']} />}>
-        <Route path="/app" element={<AppLayout />}>
-          <Route index element={<Navigate to="time-clock" replace />} />
-          <Route path="time-clock" element={<TimeClockPage />} />
-          <Route path="my-records" element={<MyRecordsPage />} />
-          <Route path="requests" element={<MyRequestsPage />} />
+      <Route element={<ProtectedRoute allowedRoles={['employee', 'admin']} />}>
+        <Route element={<AppLayout />}>
+          <Route path="/fichaje" element={<TimeClockPage />} />
+          <Route path="/mis-registros" element={<MyRecordsPage />} />
+          <Route path="/mis-solicitudes" element={<MyRequestsPage />} />
         </Route>
       </Route>
 
       <Route element={<ProtectedRoute allowedRoles={['admin', 'superadmin']} />}>
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Navigate to="employees" replace />} />
-          <Route path="employees" element={<EmployeesPage />} />
-          <Route path="time-records" element={<TimeRecordsPage />} />
-          <Route path="requests" element={<RequestsPage />} />
+        <Route element={<AdminLayout />}>
+          <Route path="/empleados" element={<EmployeesPage />} />
+          <Route path="/registros" element={<TimeRecordsPage />} />
+          <Route path="/solicitudes" element={<RequestsPage />} />
         </Route>
       </Route>
 
