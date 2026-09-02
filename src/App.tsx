@@ -7,7 +7,7 @@ import { AppRouter } from './router'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AuthProvider>
         <EmployeesProvider>
           <TimeEntriesProvider>
